@@ -1,0 +1,76 @@
+/* Resetando margens do body */
+body {
+  margin: 0;
+}
+
+.app {
+  display: flex;
+}
+
+/* Estilos do sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  position: fixed;
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.sidebar.compact {
+  width: 80px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.sidebar ul li .icon-home,
+.sidebar ul li .icon-page1,
+.sidebar ul li .icon-page2,
+.sidebar ul li .icon-page3 {
+  margin-right: 10px;
+}
+
+.sidebar.compact ul li .icon-home,
+.sidebar.compact ul li .icon-page1,
+.sidebar.compact ul li .icon-page2,
+.sidebar.compact ul li .icon-page3 {
+  margin-right: 0;
+}
+
+.sidebar .toggle-button {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Estilos do conteúdo principal */
+.main-content {
+  margin-left: 250px;
+  padding: 0px;
+  width: calc(100% - 250px);
+  transition: margin-left 0.3s, width 0.3s;
+}
+
+.main-content.compact {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* Adicionando margin-left para as páginas */
+.page-content {
+  margin-left: 10px;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
