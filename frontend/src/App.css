@@ -1,23 +1,90 @@
-/* Resetando margens do body */
-body {
+/* src/App.css */
+
+/* Estilos globais */
+body, html {
   margin: 0;
-}
-
-.app {
-  display: flex;
-}
-
-/* Estilos do sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #f4f4f4;
-  position: fixed;
+  padding: 0;
   height: 100%;
-  transition: width 0.3s;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f9fc;
 }
 
-.sidebar.compact {
-  width: 80px;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  margin-top: 64px; /* Considerar a altura da Navbar fixa */
+}
+
+.content {
+  transition: margin-left 0.3s;
+  width: 100%; /* Ajuste de largura para o conteúdo */
+  overflow-y: auto; /* Para rolagem vertical no conteúdo */
+  height: calc(100vh - 64px); /* Altura total menos a altura da navbar */
+}
+
+.content-expanded {
+  margin-left: 0px; /* Largura do sidebar aberto */
+}
+
+.content-collapsed {
+  margin-left: 0px; /* Largura do sidebar fechado */
+}
+
+/* Estilos da Navbar */
+.navbar {
+  background-color: #4a76a8;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  height: 32px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  /*justify-content: space-between;*/
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Estilos do Sidebar */
+.sidebar {
+  background-color: #2a3f54;
+  color: white;
+  padding: 1rem;
+  top: 64px; /* Altura da navbar */
+  left: 0;
+  bottom: 0;
+  z-index: 1001; /* Garantir que o sidebar fique acima do conteúdo */
+  transition: width 0.3s;
+  overflow: hidden;
+}
+
+.sidebar-open {
+  width: 200px;
+}
+
+.sidebar-closed {
+  width: 30px;
 }
 
 .sidebar ul {
@@ -26,51 +93,34 @@ body {
 }
 
 .sidebar ul li {
-  display: flex;
-  align-items: center;
-  padding: 10px;
+  margin: 1rem 0;
 }
 
-.sidebar ul li .icon-home,
-.sidebar ul li .icon-page1,
-.sidebar ul li .icon-page2,
-.sidebar ul li .icon-page3 {
-  margin-right: 10px;
-}
-
-.sidebar.compact ul li .icon-home,
-.sidebar.compact ul li .icon-page1,
-.sidebar.compact ul li .icon-page2,
-.sidebar.compact ul li .icon-page3 {
-  margin-right: 0;
-}
-
-.sidebar .toggle-button {
-  width: 100%;
-  padding: 10px;
-  cursor: pointer;
-}
-
-/* Estilos do conteúdo principal */
-.main-content {
-  margin-left: 250px;
-  padding: 0px;
-  width: calc(100% - 250px);
-  transition: margin-left 0.3s, width 0.3s;
-}
-
-.main-content.compact {
-  margin-left: 80px;
-  width: calc(100% - 80px);
-}
-
-/* Adicionando margin-left para as páginas */
-.page-content {
-  margin-left: 10px;
-}
-
-.navbar {
-  background-color: #333;
+.sidebar ul li a {
   color: white;
-  padding: 10px;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background: #1a2a38;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* Ajustar a largura do conteúdo */
+.main .content {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem;
 }

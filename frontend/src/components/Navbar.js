@@ -1,10 +1,12 @@
 import React from 'react';
+import '../App.css';
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
   return (
-    <div className="navbar">
-      <h1>My Dashboard</h1>
-    </div>
+    <nav className="navbar">
+      <button onClick={toggleSidebar}>☰</button>
+      <h1>Dashboard</h1>
+    </nav>
   );
 };
 

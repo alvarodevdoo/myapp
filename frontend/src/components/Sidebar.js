@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
-const Sidebar = ({ isCompact, toggleSidebar }) => {
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <div className={`sidebar ${isCompact ? 'compact' : ''}`}>
-      <button onClick={toggleSidebar} className="toggle-button">
-        {isCompact ? 'Expand' : 'Collapse'}
-      </button>
+    <div className={`sidebar ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
       <ul>
-        <li><Link to="/"><i className="icon-home"></i>{!isCompact && 'Home'}</Link></li>
-        <li><Link to="/page1"><i className="icon-page1"></i>{!isCompact && 'Page 1'}</Link></li>
-        <li><Link to="/page2"><i className="icon-page2"></i>{!isCompact && 'Page 2'}</Link></li>
-        <li><Link to="/page3"><i className="icon-page3"></i>{!isCompact && 'Page 3'}</Link></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/page1">Page 1</Link></li>
+        <li><Link to="/page2">Page 2</Link></li>
+        <li><Link to="/page3">Page 3</Link></li>
       </ul>
     </div>
   );
